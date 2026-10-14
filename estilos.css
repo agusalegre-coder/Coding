@@ -11,3 +11,7 @@
     margin: 10px;
     border-radius: 5px;
 }
+
+.fondo-marron {
+    background-color: rgb(150, 75, 0);
+}

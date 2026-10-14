@@ -1,8 +1,29 @@
 const titulo = document.getElementById("greeting");
-let cuenta = document.getElementById("contador");
 
+const btnSaludo = document.getElementById("btn-saludo");
+btnSaludo.addEventListener("click", cambiarSaludo);
 
-function cambiargreeting() {
+const btnSumar = document.getElementById("btn-sumar");
+btnSumar.addEventListener("click", aumentarContador);
+
+const btnRestar = document.getElementById("btn-restar");
+btnRestar.addEventListener("click", restarContador);
+
+const btnReiniciar = document.getElementById("btn-reiniciar");
+btnReiniciar.addEventListener("click", reiniciarContador);
+
+const btnCambiarFondo = document.getElementById("btn-cambiar-fondo");
+btnCambiarFondo.addEventListener("click", cambiarFondo);
+
+const cuenta = document.getElementById("contador");
+
+let contador = 0;
+
+function mostrarContador() {
+  cuenta.textContent = contador;
+}
+
+function cambiarSaludo() {
 
 if (titulo.textContent === "Hola") {
 
@@ -15,41 +36,30 @@ else {titulo.textContent = "Hola";}
 }
 
 function reiniciarContador() {
-  cuenta.textContent = "0";
+  if (contador !== 0) {
+    contador = 0;
+    mostrarContador();
+  }
 }
 
 function restarContador() {
-  let valorActual = parseInt(cuenta.textContent);
-  valorActual--;
-  cuenta.textContent = valorActual;
-
-  if (valorActual < 0) {
-    cuenta.textContent = "0";
+  if (contador > 0) {
+    contador--;
+    mostrarContador();
   }
 
 }
 
 function aumentarContador() {
-  let valorActual = parseInt(cuenta.textContent);
-  valorActual++;
-  cuenta.textContent = valorActual;
-
-if (valorActual > 10) {
-  cuenta.textContent = "10";
-
-}
+  if (contador < 10) {
+    contador++;
+    mostrarContador();
+  }
 
 }
 
 function cambiarFondo () {
  
-
-  if (document.body.style.backgroundColor === "brown") {
-    document.body.style.backgroundColor = "white";
-  } 
-  
-  else {
-    document.body.style.backgroundColor = "brown";
-  }
+  document.body.classList.toggle("fondo-marron");
 
 }
