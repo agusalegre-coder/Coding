@@ -36,10 +36,8 @@ else {titulo.textContent = "Hola";}
 }
 
 function reiniciarContador() {
-  if (contador !== 0) {
     contador = 0;
     mostrarContador();
-  }
 }
 
 function restarContador() {
